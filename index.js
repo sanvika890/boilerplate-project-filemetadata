@@ -2,11 +2,13 @@ var express = require('express');
 var cors = require('cors');
 require('dotenv').config()
 
-var app = express();
 const multer  = require('multer')
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
+var app = express();
+
 app.use(cors());
+
 app.use('/public', express.static(process.cwd() + '/public'));
 
 app.get('/', function (req, res) {
